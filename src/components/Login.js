@@ -8,10 +8,12 @@ import Forgot from './Forgot'
 import Support from './Support';
 import { useNavigate } from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux'
-import combine from '../store/user/user';
 import { adduser } from '../store/user/user';
+import email from '../store/user/email.json'
 function Login() {
-  const user=useSelector(state=>(state.user))
+  console.log(email)
+  localStorage.setItem("users",JSON.stringify(email))
+  const user=useSelector(state=>(state.users))
   console.log("hello",user)
   const dispatch=useDispatch()
   const navigate=useNavigate()
@@ -26,14 +28,17 @@ function Login() {
     password:''
   }
   const onSubmit=values=>{
-    console.log('FormData',values)
+    // console.log('FormData',values)
     if(!isLogin){
+      var data= JSON.parse(localStorage.getItem("users"))
+      const isUserLogin=data.find((user)=>user.email==values.email && user.password==values.password)
+      if(isUserLogin){
       dispatch(adduser({
-        email:"Divyam", 
-        password:"12345"
-
+        email:values.email, 
+        password:values.password
       }))
       setIsLogin(true)
+    }
     }
   }
   const validate=values=>{

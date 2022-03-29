@@ -1,33 +1,29 @@
 import { combineReducers } from "redux";
-const ADD_USER = 'ADD_USER'; 
+const ADD_USER = "ADD_USER";
 export function adduser(user) {
-    return {
-      type: 'ADD_USER',
-      user,
-    }
+  return {
+    type: ADD_USER,
+    user,
+  };
+}
+
+const defaultUser = 
+  {
+    email: "",
+    password: "",
+  };
+
+const users=(state = defaultUser, action) =>  {
+  switch (action.type) {
+    case ADD_USER:
+      return {
+          user: action.user,
+        }
+    default:
+      return state;
   }
- 
-  const defaultUser = 
-    {
-      email: '',
-      password: '',
-    }
-  ;
-  
-  function users(state=defaultUser, action) {
-      console.log(action)
-    switch (action.type) {
-        case ADD_USER:
-          return [
-            ...state,
-            {
-              email: action.email,
-              password: action.password
-            }
-          ];
-        default:
-          return state;
-      }
-  }
-  const combine=combineReducers(users)
+}
+
+const combine = combineReducers({ users });
 export default combine;
+
