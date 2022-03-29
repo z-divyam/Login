@@ -1,0 +1,38 @@
+.Header{
+    padding: 12px;
+    border-bottom: 1px solid #e5e5e5;
+    min-height: 16.42857px;
+    background: #14508f;
+    color: #fff;
+    
+}
+
+.Body{
+    color: #333333;
+    font-size: 14px;
+    font-family: 'latoregular', sans-serif;
+}
+.Field{
+    font-family: 'latoregular', sans-serif;
+    display: flex;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.Submit{
+    padding-right: 5%;
+    text-align: right;
+}
+.Forget{
+    text-decoration: none;
+    border-radius: 4px;
+    background: #fff;
+    border:none;
+    color:#00469a
+}
